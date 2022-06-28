@@ -4,6 +4,8 @@ open System
 open System.IO
 
 module Commands =
+    let defaultSeparator = Environment.NewLine
+    
     let brainFuckExtension = ".bf"
     let voidExtension = ".   "
     let voidAltExtension = ".void"
@@ -35,7 +37,7 @@ module Commands =
     let fromBrainFuck (s : string) =
         s.ToCharArray()
         |> Array.filter fromBrainFuckMap.ContainsKey
-        |> Array.map (fun e -> fromBrainFuckMap[e] + "\t")
+        |> Array.map (fun e -> fromBrainFuckMap[e] + defaultSeparator)
         |> String.Concat
 
 
